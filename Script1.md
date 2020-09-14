@@ -1,0 +1,16 @@
+# shell-script
+#!/bin/bash
+# seta variáveis
+diretorio="/home/pedro/Imagens/";
+
+# apaga arquivo
+> images.txt;
+
+# salva nome dos arquivo tipo imagem no txt
+file $diretorio* | grep "image data" | cut -d ":" -f1 >> images.txt;
+
+# remove a extensão dos arquivos tipo imagem
+while read line
+do
+    mv "$line" "$(echo $line | cut -d "." -f1)"
+done < images.txt;
