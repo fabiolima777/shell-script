@@ -1,0 +1,9 @@
+#!/bin/bash
+# seta variáveis
+diretorio="/home/pedro/Imagens/";
+
+# adciona novamente a extensão aos arquivos do tipo imagem
+while read line
+do
+    mv "$(echo $line | cut -d "." -f1)" "$line"
+done < images.txt;
